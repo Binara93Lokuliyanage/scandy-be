@@ -40,6 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     $post->sku = $data[$x]['sku'];
     $post->massDelete();
   }
+  echo json_encode(
+    array(
+      'status' => true,
+      'message' => 'Successfuly added to database'
+        )
+  );
 ?>
   
 
