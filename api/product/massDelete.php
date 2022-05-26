@@ -27,9 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
+  $sku = null;
+  $name = null;
+  $price = null;
+  $type = null;
 
   // Instantiate blog post object
-  $post = new Product($db);
+  $post = new Product($db, $sku, $name, $price, $type);
 
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"), true);

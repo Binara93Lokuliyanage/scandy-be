@@ -27,13 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
+  $sku = null;
+  $name = null;
+  $price = null;
+  $type = null;
 
-  // Instantiate user object
-  $post = new Product($db);
+  // Instantiate object
+  $post = new Product($db, $sku, $name, $price, $type);
 
   $data = json_decode(file_get_contents("php://input"));
 
-  // get user query
+  // get query
   $result = $post->listProducts();
   // Get row count
   $num = $result->rowCount();
@@ -53,9 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
         'price' => $price,
         'type' => $type,
         'size' => $size,
-        'height' => $height,
-        'width' => $width,
-        'length' => $length,
+        'dimention' => $dimention,
         'weight' => $weight
       );
 

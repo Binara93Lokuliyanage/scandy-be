@@ -1,15 +1,15 @@
 <?php 
   class Database {
     // DB Params
-    private $host = 'rtqaweb.cnaejpnwpryu.ap-southeast-1.rds.amazonaws.com';
-    private $db_name = 'scandy_web';
-    private $username = 'rtadmin';
-    private $password = 'raditechsadmin1qaz2wsx';
-
-    // private $host = 'localhost';
+    // private $host = 'rtqaweb.cnaejpnwpryu.ap-southeast-1.rds.amazonaws.com';
     // private $db_name = 'scandy_web';
-    // private $username = 'root';
-    // private $password = '';
+    // private $username = 'rtadmin';
+    // private $password = 'raditechsadmin1qaz2wsx';
+
+    private $host = 'localhost';
+    private $db_name = 'scandy_web';
+    private $username = 'root';
+    private $password = '';
 
     private $conn;
 

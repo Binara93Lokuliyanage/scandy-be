@@ -28,23 +28,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog post object
-  $post = new Product($db);
+  
 
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
 
-  $post->sku = $data->sku;
-  $post->name = $data->name;
-  $post->price = $data->price;
-  $post->type = $data->type;
-  $post->size = $data->size;
-  $post->height = $data->height;
-  $post->width = $data->width;
-  $post->length = $data->length;
-  $post->weight = $data->weight;
+  $sku = $data->sku;
+  $name = $data->name;
+  $price = $data->price;
+  $type = $data->type;
+  $property = $data->property;
 
-  if($post->sku === null || $post->sku === '') {
+  // Instantiate object
+  $post = new $type($db, $sku, $name, $price, $type, $property);
+
+  if($sku === null || $sku === '') {
   exit();
   }
 
